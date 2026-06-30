@@ -1,0 +1,7 @@
+Flask
+pymongo
+python-dotenv
+bcrypt
+flask-wtf
+email-validator
+Pillow

@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block title %}Catálogo de Livros - Livraria Online{% endblock %}
+
+{% block content %}
+<div class="flex flex-col md:flex-row gap-8">
+
+    <!-- Sidebar de Filtros -->
+    <aside class="w-full md:w-80 flex-shrink-0">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sticky top-8">
+            <form method="GET" class="space-y-6" id="catalog-filters">
+                {{ form.hidden_tag() }}
+
+                <!-- Buscar por nome -->
+                <div>
+                    <label class="block font-semibold text-gray-800 dark:text-gray-100 mb-1">Buscar por nome</label>
+                    <input type="text" name="nome" value="{{ request.args.get('nome', '') }}" class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600">
+                </div>
+                
+                <!-- Edições recentes -->
+                <div>
+                    <label class="flex items-center gap-2">
+                        {{ form.mais_recente(class="accent-orange-600") }}
+                        <span class="font-semibold text-gray-800 dark:text-gray-100">Apenas edições mais recentes</span>
+                    </label>
+                </div>
+                
+                <!-- Faixa de preço -->
+                <div class="mb-6">
+                    <label class="block font-semibold text-gray-800 dark:text-gray-100 mb-2">Faixa de preço</label>
+                    <div class="flex items-center gap-4 mb-2">
+                        <span id="price-min-display" class="text-gray-700 dark:text-gray-300">R$ {{ request.args.get('preco_min', '0') }}</span>
+                        <span class="text-gray-700 dark:text-gray-300">—</span>
+                        <span id="price-max-display" class="text-gray-700 dark:text-gray-300">R$ {{ request.args.get('preco_max', '500') }}</span>
+                    </div>
+                    <div class="relative h-10">
+                        <!-- Barra de fundo -->
+                        <div class="absolute w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full top-4"></div>
+                        <!-- Barra destacada entre os controles -->
+                        <div id="price-range-selected" class="absolute h-2 bg-orange-500 rounded-full top-4"></div>
+                        <!-- Controles (mínimo e máximo) -->
+                        <input type="range" min="0" max="500" value="{{ request.args.get('preco_min', '0') }}" step="1" id="price-min" name="preco_min" class="absolute w-full h-2 top-4 appearance-none bg-transparent pointer-events-none z-10">
+                        <input type="range" min="0" max="500" value="{{ request.args.get('preco_max', '500') }}" step="1" id="price-max" name="preco_max" class="absolute w-full h-2 top-4 appearance-none bg-transparent pointer-events-none z-10">
+                    </div>
+                </div>
+
+
+                <!-- Categorias estilo tags (como SteamDB) -->
+                <div>
+                    <label class="block font-semibold text-gray-800 dark:text-gray-100 mb-1">Categorias</label>
+                    <div class="flex flex-wrap gap-2">
+                        {% for value, label in form.categorias.choices %}
+                            <label class="flex items-center cursor-pointer">
+                                {{ form.categorias(value=value, class="hidden") }}
+                                <span class="px-3 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 text-sm transition
+                                    tag-category
+                                    {% if value in form.categorias.data %} ring-2 ring-orange-500 bg-orange-100 dark:bg-orange-800 text-orange-700 dark:text-orange-200 border-orange-400 dark:border-orange-600 {% endif %}">
+                                    {{ label }}
+                                </span>
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Tags (checkboxes) -->
+                <div class="mb-4">
+                    <label class="block font-semibold text-gray-800 dark:text-gray-100 mb-2">Filtrar por tags</label>
+                    <div class="max-h-72 overflow-y-auto flex flex-col gap-1 bg-gray-100 dark:bg-gray-800 rounded-md p-2 shadow-inner">
+                        {% set tags = [
+                        'Romance', 'Ficção', 'Aventura', 'Biografia', 'Clássico', 'Drama', 'Fantasia', 'História', 'Mistério', 'Poesia', 'Suspense', 'Terror', 'Infantil', 'HQ', 'Literatura Brasileira', 'Século XIX'
+                        ] %}
+                        {% for tag in tags %}
+                        <div class="flex items-center justify-between px-2 py-1 rounded transition tag-row" data-tag="{{ tag }}">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="tag-include sr-only" id="tag-include-{{ loop.index }}" name="tags_include" value="{{ tag }}">
+                            <span class="inline-flex items-center justify-center w-4 h-4 mr-2 border rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                            <svg class="w-3 h-3 text-green-600 hidden include-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            </span>
+                        </label>
+                        <span class="flex-1 mx-2 select-none text-gray-800 dark:text-gray-100 text-sm">{{ tag }}</span>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="tag-exclude sr-only" id="tag-exclude-{{ loop.index }}" name="tags_exclude" value="{{ tag }}">
+                            <span class="inline-flex items-center justify-center w-4 h-4 ml-2 border rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                            <svg class="w-3 h-3 text-red-600 hidden exclude-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            </span>
+                        </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">Marque à esquerda para <span class="text-green-600 font-semibold">incluir</span> e à direita para <span class="text-red-600 font-semibold">excluir</span> a tag.</p>
+                </div>
+
+
+
+                <!-- Número de autores -->
+                <div>
+                    <label class="block font-semibold text-gray-800 dark:text-gray-100 mb-1">Número de autores</label>
+                    <div class="flex flex-col gap-1">
+                        <ul class="accent-orange-600" id="num_autores" value="1">
+                            <li><input id="num_autores-0" name="num_autores" type="radio" value="1"> <label for="num_autores-0">1 autor</label></li>
+                            <li><input id="num_autores-1" name="num_autores" type="radio" value="2"> <label for="num_autores-1">2 autores</label></li>
+                            <li><input id="num_autores-2" name="num_autores" type="radio" value="3"> <label for="num_autores-2">3+ autores</label></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full mt-4 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-bold transition-colors duration-200">
+                    Filtrar
+                </button>
+                <a href="{{ url_for('buscar') }}" class="block text-center text-sm text-orange-500 hover:underline mt-2">Limpar filtros</a>
+            </form>
+        </div>
+    </aside>
+
+    <!-- Listagem dos Livros -->
+    <section class="flex-1">
+        <h1 class="text-2xl font-bold mb-6 text-orange-600 dark:text-orange-400">Catálogo de Livros</h1>
+        {% if livros %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for livro in livros %}
+                <div class="relative bg-white dark:bg-gray-800 border border-orange-200 dark:border-orange-700 rounded-xl shadow hover:scale-105 transition-transform duration-200 group cursor-pointer overflow-hidden rounded-lg" data-id="{{ livro._id }}">
+                    {% if livro.mais_recente_edicao %}
+                        <span class="absolute top-4 right-4 bg-green-700 text-white text-xs px-4 py-1 rounded-full z-10 font-semibold shadow badge">Edição Recente</span>
+                    {% endif %}
+                    <div class="w-full h-40 bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+                        <img
+                            src="{% if livro.id %}{{ url_for('static', filename='images/' ~ livro.id ~ '.png') }}{% else %}https://placehold.co/220x160?text={{ livro.titulo | replace(' ', '+') }}{% endif %}"
+                            alt="{{ livro.titulo }}"
+                            onerror="this.onerror=null;this.src='https://placehold.co/220x160?text={{ livro.titulo | replace(' ', '+') }}';"
+                            class="object-cover w-full h-full"
+                        >
+                    </div>
+                    <div class="p-4 flex flex-col gap-2">
+                        <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-0 truncate">{{ livro.titulo }}</h2>
+                        <div class="text-orange-700 dark:text-orange-300 text-sm mb-1 truncate">{{ livro.autores | join(', ') }}</div>
+                        <div class="text-orange-600 dark:text-orange-400 font-bold text-lg mb-2">R$ {{ livro.preco.to_decimal() if livro.preco else '---' }}</div>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            {% for tag in livro.tags %}
+                                <span class="bg-orange-200 dark:bg-orange-800 text-orange-800 dark:text-orange-200 rounded-full px-3 py-1 text-xs font-semibold">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center text-gray-600 dark:text-gray-400 mt-12">Nenhum livro encontrado.</p>
+        {% endif %}
+        {% if total_paginas > 1 %}
+            <div class="flex justify-center mt-8 mb-4">
+                <div class="flex gap-2">
+                    {% if pagina > 1 %}
+                        <a href="{{ url_for('buscar', pagina=pagina-1) }}" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-orange-400 dark:hover:bg-orange-700 transition-colors">Anterior</a>
+                    {% endif %}
+                    {% for p in range(1, total_paginas+1) %}
+                        <a href="{{ url_for('buscar', pagina=p) }}" class="px-4 py-2 rounded-lg {% if p == pagina %}bg-orange-600 text-white{% else %}bg-gray-200 dark:bg-gray-700 hover:bg-orange-400 dark:hover:bg-orange-700{% endif %} transition-colors">
+                            {{ p }}
+                        </a>
+                    {% endfor %}
+                    {% if pagina < total_paginas %}
+                        <a href="{{ url_for('buscar', pagina=pagina+1) }}" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-orange-400 dark:hover:bg-orange-700 transition-colors">Próxima</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}
+
+{% block scripts_extra %}
+<script src="{{ url_for('static', filename='js/price-range.js') }}"></script>
+<script src="{{ url_for('static', filename='js/catalogo.js') }}"></script>
+{% endblock %}

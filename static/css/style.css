@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.livros-destaque {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.livro {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.livro:hover {
+    transform: translateY(-5px);
+}
+
+.livro-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.livro-info {
+    padding: 1rem;
+}
+
+.busca {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+
+.busca input,
+.busca select,
+.busca button {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.busca button {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.badge {
+    letter-spacing: 0.04em;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #2c3e50;
+    color: white;
+    margin-top: 2rem;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #f97316;
+    border: 2px solid #ea580c;
+    cursor: pointer;
+    margin-top: -8px;
+    pointer-events: auto;
+    z-index: 20;
+    position: relative;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #f97316;
+    border: 2px solid #ea580c;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 20;
+    position: relative;
+}

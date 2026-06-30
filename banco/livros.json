@@ -1,0 +1,922 @@
+[
+  {
+    "titulo": "Ilíada",
+    "preco": 89.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "poesia épica",
+      "literatura grega",
+      "clássico universal"
+    ],
+    "autores": [
+      "Homero"
+    ],
+    "mais_recente_edicao": false,
+    "data_publicacao": "2013-02-06",
+    "editora": "Penguin-Companhia",
+    "descricao": "Livro fundador da literatura ocidental que narra a tragédia de Aquiles e a Guerra de Troia.",
+    "isbn": "978-85-6356-056-8",
+    "estoque": 78,
+    "id": 1
+  },
+  {
+    "titulo": "Odisseia",
+    "preco": 79.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "poesia épica",
+      "literatura grega",
+      "clássico universal"
+    ],
+    "autores": [
+      "Homero"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "2018-02-01",
+    "editora": "Quetzal Editores",
+    "descricao": "Narra as aventuras de Ulisses em seu retorno do cerco de Troia à sua terra natal, Ítaca.",
+    "isbn": "978-989-722-438-6",
+    "estoque": 56,
+    "id": 2
+  },
+  {
+    "titulo": "Dom Quixote",
+    "preco": 39.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura espanhola",
+      "clássico universal"
+    ],
+    "autores": [
+      "Miguel de Cervantes"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "2023-01-01",
+    "editora": "Principis",
+    "descricao": "Clássico da literatura mundial que narra as aventuras do cavaleiro Dom Quixote e seu fiel escudeiro Sancho Pança.",
+    "isbn": "09786550970710",
+    "estoque": 18,
+    "id": 3
+  },
+  {
+    "titulo": "Hamlet",
+    "preco": 64.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "drama",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "William Shakespeare"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "2015-08-12",
+    "editora": "Penguin-Companhia",
+    "descricao": "Tragédia do príncipe da Dinamarca que busca vingar a morte de seu pai, considerada uma das maiores obras da dramaturgia mundial.",
+    "isbn": "978-85-8285-014-5",
+    "estoque": 48,
+    "id": 4
+  },
+  {
+    "titulo": "Moby Dick",
+    "preco": 119.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "aventura",
+      "literatura americana",
+      "clássico universal"
+    ],
+    "autores": [
+      "Herman Melville"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "2019-01-01",
+    "editora": "Editora 34",
+    "descricao": "Narra a obsessiva busca do capitão Ahab pela baleia branca Moby Dick.",
+    "isbn": "978-85-7326-738-9",
+    "estoque": 59,
+    "id": 5
+  },
+  {
+    "titulo": "Guerra e Paz",
+    "preco": 129.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance histórico",
+      "literatura russa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Lev Tolstói"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "2025-01-01",
+    "editora": "Editora Garnier",
+    "descricao": "Epopeia que retrata a sociedade russa durante a invasão napoleônica, considerada uma das maiores obras da literatura mundial.",
+    "isbn": "978-65-8495-674-2",
+    "estoque": 88,
+    "id": 6
+  },
+  {
+    "titulo": "Os Irmãos Karamazov",
+    "preco": 99.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura russa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Fiódor Dostoiévski"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "2021-01-01",
+    "editora": "Editora Martin Claret",
+    "descricao": "Último romance de Dostoiévski, considerado sua obra-prima e marco da literatura universal.",
+    "isbn": "978-65-5910-009-5",
+    "estoque": 42,
+    "id": 7
+  },
+  {
+    "titulo": "Crime e Castigo",
+    "preco": 69.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance psicológico",
+      "literatura russa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Fiódor Dostoiévski"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "2025-01-01",
+    "editora": "Editora Garnier",
+    "descricao": "Clássico que narra a história de Raskólnikov, estudante que comete um crime e enfrenta as consequências morais.",
+    "isbn": "978-65-8495-675-9",
+    "estoque": 8,
+    "id": 8
+  },
+  {
+    "titulo": "1984",
+    "preco": 59.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "distopia",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "George Orwell"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "2009-01-01",
+    "editora": "Editora Schwarcz SA",
+    "descricao": "Distopia que retrata um regime totalitário e a vigilância estatal, tornando-se referência mundial.",
+    "isbn": "978-85-359-1484-9",
+    "estoque": 8,
+    "id": 9
+  },
+  {
+    "titulo": "Cem Anos de Solidão",
+    "preco": 79.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "realismo mágico",
+      "literatura latino-americana",
+      "clássico universal"
+    ],
+    "autores": [
+      "Gabriel García Márquez"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "2019-01-01",
+    "editora": "Record",
+    "descricao": "Clássico do realismo mágico que narra a história da família Buendía em Macondo.",
+    "isbn": "978-85-01-11751-1",
+    "estoque": 38,
+    "id": 10
+  },
+  {
+    "titulo": "Amor nos Tempos do Cólera",
+    "preco": 79.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "realismo mágico",
+      "literatura latino-americana",
+      "romance"
+    ],
+    "autores": [
+      "Gabriel García Márquez"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1985-01-01",
+    "editora": "Record",
+    "descricao": "História de uma paixão profunda que foi proibida durante meio século, ambientada na transição dos séculos XIX e XX na Colômbia.",
+    "isbn": "978-85-010-2872-0",
+    "estoque": 23,
+    "id": 11
+  },
+  {
+    "titulo": "O Grande Gatsby",
+    "preco": 59.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura americana",
+      "clássico universal"
+    ],
+    "autores": [
+      "F. Scott Fitzgerald"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1925-04-10",
+    "editora": "Penguin-Companhia",
+    "descricao": "Retrata a vida do misterioso milionário Jay Gatsby e sua obsessão por Daisy Buchanan, simbolizando o sonho americano e sua decadência.",
+    "isbn": "978-85-359-1484-0",
+    "estoque": 64,
+    "id": 12
+  },
+  {
+    "titulo": "O Senhor dos Anéis",
+    "preco": 149.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "fantasia",
+      "aventura",
+      "clássico universal"
+    ],
+    "autores": [
+      "J. R. R. Tolkien"
+    ],
+    "mais_recente_edicao": false,
+    "data_publicacao": "1954-07-29",
+    "editora": "HarperCollins",
+    "descricao": "Epopeia fantástica que narra a jornada de Frodo para destruir o Anel do Poder e salvar a Terra Média das trevas de Sauron.",
+    "isbn": "978-85-209-2329-0",
+    "estoque": 37,
+    "id": 13
+  },
+  {
+    "titulo": "O Pequeno Príncipe",
+    "preco": 39.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "infantil",
+      "filosofia",
+      "clássico universal"
+    ],
+    "autores": [
+      "Antoine de Saint-Exupéry"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1943-04-06",
+    "editora": "Agir",
+    "descricao": "Fábula filosófica sobre um piloto perdido no deserto que encontra um menino de outro planeta, abordando temas como amizade e o sentido da vida.",
+    "isbn": "978-85-220-1199-5",
+    "estoque": 91,
+    "id": 14
+  },
+  {
+    "titulo": "A Metamorfose",
+    "preco": 29.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura alemã",
+      "clássico universal"
+    ],
+    "autores": [
+      "Franz Kafka"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1915-01-01",
+    "editora": "Companhia das Letras",
+    "descricao": "Gregor Samsa acorda transformado em um inseto, levando à reflexão sobre alienação, identidade e sociedade.",
+    "isbn": "978-85-359-1979-1",
+    "estoque": 55,
+    "id": 15
+  },
+  {
+    "titulo": "Madame Bovary",
+    "preco": 49.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura francesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Gustave Flaubert"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1856-01-01",
+    "editora": "Principis",
+    "descricao": "Emma Bovary busca a realização de seus sonhos românticos em meio à mediocridade da vida provinciana, resultando em tragédia.",
+    "isbn": "978-85-204-4308-4",
+    "estoque": 12,
+    "id": 16
+  },
+  {
+    "titulo": "O Conde de Monte Cristo",
+    "preco": 94.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "aventura",
+      "literatura francesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Alexandre Dumas"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1844-01-01",
+    "editora": "Companhia das Letras",
+    "descricao": "Edmond Dantès é preso injustamente e, ao escapar, planeja uma vingança mirabolante contra seus algozes.",
+    "isbn": "978-85-359-1979-0",
+    "estoque": 70,
+    "id": 17
+  },
+  {
+    "titulo": "Os Miseráveis",
+    "preco": 89.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura francesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Victor Hugo"
+    ],
+    "mais_recente_edicao": false,
+    "data_publicacao": "1862-01-01",
+    "editora": "Editora 34",
+    "descricao": "Epopeia sobre Jean Valjean, ex-presidiário que busca redenção em meio à injustiça social na França do século XIX.",
+    "isbn": "978-85-7326-483-8",
+    "estoque": 33,
+    "id": 18
+  },
+  {
+    "titulo": "Jane Eyre",
+    "preco": 59.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Charlotte Brontë"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1847-10-16",
+    "editora": "Penguin-Companhia",
+    "descricao": "A história de uma jovem órfã que busca independência e amor em uma sociedade marcada por desigualdades de gênero e classe.",
+    "isbn": "978-85-8285-012-1",
+    "estoque": 19,
+    "id": 19
+  },
+  {
+    "titulo": "O Morro dos Ventos Uivantes",
+    "preco": 69.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Emily Brontë"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1847-01-01",
+    "editora": "Editora Martin Claret",
+    "descricao": "Narra a história de amor e vingança entre Heathcliff e Catherine em uma mansão isolada na charneca inglesa.",
+    "isbn": "978-85-7232-864-8",
+    "estoque": 27,
+    "id": 20
+  },
+  {
+    "titulo": "Mulherzinhas",
+    "preco": 49.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura americana",
+      "clássico universal"
+    ],
+    "autores": [
+      "Louisa May Alcott"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1868-01-01",
+    "editora": "Penguin-Companhia",
+    "descricao": "Narra a vida das irmãs March durante a Guerra Civil Americana, abordando temas como família, amadurecimento e independência feminina.",
+    "isbn": "978-85-6356-246-3",
+    "estoque": 78,
+    "id": 21
+  },
+  {
+    "titulo": "A Letra Escarlate",
+    "preco": 59.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura americana",
+      "clássico universal"
+    ],
+    "autores": [
+      "Nathaniel Hawthorne"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1850-01-01",
+    "editora": "Editora Schwarcz SA",
+    "descricao": "A história de Hester Prynne, marcada pelo estigma do adultério em uma sociedade puritana, explorando temas como culpa, redenção e moralidade.",
+    "isbn": "978-85-359-1485-7",
+    "estoque": 56,
+    "id": 22
+  },
+  {
+    "titulo": "David Copperfield",
+    "preco": 89.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Charles Dickens"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1850-01-01",
+    "editora": "Editora 34",
+    "descricao": "Semi-autobiográfico, acompanha a vida de David Copperfield desde a infância até a maturidade, passando por desafios e transformações.",
+    "isbn": "978-85-7326-482-1",
+    "estoque": 18,
+    "id": 23
+  },
+  {
+    "titulo": "Oliver Twist",
+    "preco": 69.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Charles Dickens"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1838-01-01",
+    "editora": "Editora Martin Claret",
+    "descricao": "A história de um órfão que enfrenta a pobreza e a criminalidade em Londres, em busca de uma vida melhor.",
+    "isbn": "978-85-7232-864-9",
+    "estoque": 48,
+    "id": 24
+  },
+  {
+    "titulo": "Viagem ao Centro da Terra",
+    "preco": 79.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "aventura",
+      "ficção científica",
+      "clássico universal"
+    ],
+    "autores": [
+      "Jules Verne"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1864-01-01",
+    "editora": "Principis",
+    "descricao": "Um professor e seu sobrinho embarcam em uma jornada inesquecível rumo ao centro da Terra, repleta de descobertas e perigos.",
+    "isbn": "978-85-204-4308-5",
+    "estoque": 59,
+    "id": 25
+  },
+  {
+    "titulo": "Alice no País das Maravilhas",
+    "preco": 39.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "infantil",
+      "fantasia",
+      "clássico universal"
+    ],
+    "autores": [
+      "Lewis Carroll"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1865-01-01",
+    "editora": "Zahar",
+    "descricao": "Aventura de Alice, que cai em um mundo fantástico após seguir um coelho branco, repleto de personagens inesquecíveis.",
+    "isbn": "978-85-378-0175-5",
+    "estoque": 88,
+    "id": 26
+  },
+  {
+    "titulo": "Iracema",
+    "preco": 29.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura brasileira",
+      "clássico universal"
+    ],
+    "autores": [
+      "José de Alencar"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1865-01-01",
+    "editora": "Editora Martin Claret",
+    "descricao": "Lenda lírica sobre o amor entre a índia Iracema e o colonizador Martim, símbolo da formação do Brasil.",
+    "isbn": "978-85-7232-864-6",
+    "estoque": 42,
+    "id": 27
+  },
+  {
+    "titulo": "A Arte da Guerra",
+    "preco": 34.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "filosofia",
+      "estratégia",
+      "clássico universal"
+    ],
+    "autores": [
+      "Sun Tzu"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "século IV a.C.",
+    "editora": "Editora Jardim dos Livros",
+    "descricao": "Tratado militar chinês que aborda estratégias, táticas e filosofia de guerra, influenciando diversas áreas do conhecimento.",
+    "isbn": "978-85-8470-012-2",
+    "estoque": 8,
+    "id": 28
+  },
+  {
+    "titulo": "Medeia",
+    "preco": 24.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "tragédia",
+      "literatura grega",
+      "clássico universal"
+    ],
+    "autores": [
+      "Eurípides"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "431 a.C.",
+    "editora": "Editora Martin Claret",
+    "descricao": "Tragédia grega que retrata a vingança de Medeia contra Jasão, abordando temas como amor, traição e poder feminino.",
+    "isbn": "978-85-7232-864-7",
+    "estoque": 8,
+    "id": 29
+  },
+  {
+    "titulo": "Édipo Rei",
+    "preco": 24.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "tragédia",
+      "literatura grega",
+      "clássico universal"
+    ],
+    "autores": [
+      "Sófocles"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "427 a.C.",
+    "editora": "Editora Martin Claret",
+    "descricao": "Tragédia grega que narra a descoberta de Édipo sobre seu destino trágico, tornando-se uma das obras mais emblemáticas do teatro.",
+    "isbn": "978-85-7232-864-4",
+    "estoque": 38,
+    "id": 30
+  },
+  {
+    "titulo": "O Apanhador no Campo de Centeio",
+    "preco": 59.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura americana",
+      "clássico universal"
+    ],
+    "autores": [
+      "J. D. Salinger"
+    ],
+    "mais_recente_edicao": false,
+    "data_publicacao": "1951-01-01",
+    "editora": "Editora do Autor",
+    "descricao": "Narra a história de Holden Caulfield, um adolescente em crise existencial que busca sentido e autenticidade em um mundo que considera falso.",
+    "isbn": "978-85-8080-000-6",
+    "estoque": 67,
+    "id": 31
+  },
+  {
+    "titulo": "O Corvo",
+    "preco": 29.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "poesia",
+      "literatura americana",
+      "clássico universal"
+    ],
+    "autores": [
+      "Edgar Allan Poe"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1845-01-01",
+    "editora": "Editora Martin Claret",
+    "descricao": "Poema narrativo que explora temas como perda, melancolia e o sobrenatural, com o corvo como símbolo da memória e do luto.",
+    "isbn": "978-85-7232-864-5",
+    "estoque": 42,
+    "id": 32
+  },
+  {
+    "titulo": "O Sol Nasce para Todos",
+    "preco": 69.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura americana",
+      "clássico universal"
+    ],
+    "autores": [
+      "Harper Lee"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1960-01-01",
+    "editora": "Companhia das Letras",
+    "descricao": "Retrata a luta do advogado Atticus Finch para defender um homem negro acusado injustamente, abordando temas de racismo e justiça.",
+    "isbn": "978-85-359-1979-2",
+    "estoque": 15,
+    "id": 33
+  },
+  {
+    "titulo": "O Diário de Anne Frank",
+    "preco": 44.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "biografia",
+      "literatura holandesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Anne Frank"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1947-01-01",
+    "editora": "Editora Record",
+    "descricao": "Relato pessoal de Anne Frank, uma adolescente judia que se escondeu com sua família durante a Segunda Guerra Mundial.",
+    "isbn": "978-85-010-2872-1",
+    "estoque": 83,
+    "id": 34
+  },
+  {
+    "titulo": "O Nome da Rosa",
+    "preco": 89.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance histórico",
+      "literatura italiana",
+      "clássico universal"
+    ],
+    "autores": [
+      "Umberto Eco"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1980-01-01",
+    "editora": "Editora Record",
+    "descricao": "Romance policial ambientado em um mosteiro medieval, misturando filosofia, teologia e mistério.",
+    "isbn": "978-85-010-2872-2",
+    "estoque": 57,
+    "id": 35
+  },
+  {
+    "titulo": "Laranja Mecânica",
+    "preco": 64.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "distopia",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Anthony Burgess"
+    ],
+    "mais_recente_edicao": false,
+    "data_publicacao": "1962-01-01",
+    "editora": "Editora Aleph",
+    "descricao": "Distopia sobre violência juvenil e livre-arbítrio, com a história de Alex e sua gangue em uma sociedade futurista.",
+    "isbn": "978-85-7657-456-7",
+    "estoque": 24,
+    "id": 36
+  },
+  {
+    "titulo": "Mahabharata",
+    "preco": 129.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "epopeia",
+      "literatura indiana",
+      "clássico universal"
+    ],
+    "autores": [
+      "Vyasa (tradicionalmente atribuído)"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "século IV a.C.",
+    "editora": "Editora Nova Fronteira",
+    "descricao": "Epopeia indiana que narra a guerra entre os Pandavas e os Kauravas, abordando temas como dever, moralidade e destino.",
+    "isbn": "978-85-209-2329-1",
+    "estoque": 36,
+    "id": 37
+  },
+  {
+    "titulo": "O Príncipe",
+    "preco": 34.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "filosofia",
+      "literatura italiana",
+      "clássico universal"
+    ],
+    "autores": [
+      "Maquiavel"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1532-01-01",
+    "editora": "Editora Martin Claret",
+    "descricao": "Tratado político que analisa o exercício do poder e a natureza do Estado, tornando-se referência para governantes e estudiosos.",
+    "isbn": "978-85-7232-864-3",
+    "estoque": 73,
+    "id": 38
+  },
+  {
+    "titulo": "O Cão dos Baskervilles",
+    "preco": 49.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "mistério",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Arthur Conan Doyle"
+    ],
+    "mais_recente_edicao": false,
+    "data_publicacao": "1902-01-01",
+    "editora": "Principis",
+    "descricao": "Um dos casos mais famosos de Sherlock Holmes, investigando uma lenda de um cão sobrenatural que assombra a família Baskerville.",
+    "isbn": "978-85-204-4308-6",
+    "estoque": 51,
+    "id": 39
+  },
+  {
+    "titulo": "A Guerra dos Mundos",
+    "preco": 54.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "ficção científica",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "H. G. Wells"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1898-01-01",
+    "editora": "Editora Martin Claret",
+    "descricao": "Clássico da ficção científica que narra a invasão da Terra por marcianos, explorando temas de sobrevivência e tecnologia.",
+    "isbn": "978-85-7232-864-2",
+    "estoque": 62,
+    "id": 40
+  },
+  {
+    "titulo": "Orgulho e Preconceito",
+    "preco": 54.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Jane Austen"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1813-01-28",
+    "editora": "Penguin-Companhia",
+    "descricao": "A jovem Elizabeth Bennet navega questões de casamento, moralidade e independência na Inglaterra do século XIX, em um dos romances mais amados da literatura inglesa.",
+    "isbn": "978-85-8285-011-4",
+    "estoque": 74,
+    "id": 41
+  },
+  {
+    "titulo": "O Retrato de Dorian Gray",
+    "preco": 49.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "romance",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Oscar Wilde"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1890-07-01",
+    "editora": "Editora Martin Claret",
+    "descricao": "Dorian Gray vende sua alma para que um retrato envelhece em seu lugar, mergulhando em uma vida de devassidão enquanto permanece jovem e belo.",
+    "isbn": "978-85-7232-865-5",
+    "estoque": 45,
+    "id": 42
+  },
+  {
+    "titulo": "A Revolta dos Bichos",
+    "preco": 34.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "distopia",
+      "sátira política",
+      "clássico universal"
+    ],
+    "autores": [
+      "George Orwell"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1945-08-17",
+    "editora": "Companhia das Letras",
+    "descricao": "Fábula política em que animais de uma fazenda se rebelam contra seus donos, tornando-se uma poderosa sátira ao totalitarismo.",
+    "isbn": "978-85-359-2971-3",
+    "estoque": 61,
+    "id": 43
+  },
+  {
+    "titulo": "Frankenstein",
+    "preco": 44.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "terror",
+      "ficção científica",
+      "clássico universal"
+    ],
+    "autores": [
+      "Mary Shelley"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1818-01-01",
+    "editora": "Penguin-Companhia",
+    "descricao": "O cientista Victor Frankenstein cria vida a partir de matéria inanimada, mas sua criatura, abandonada e incompreendida, se volta contra ele.",
+    "isbn": "978-85-8285-015-2",
+    "estoque": 53,
+    "id": 44
+  },
+  {
+    "titulo": "Drácula",
+    "preco": 49.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "terror",
+      "literatura inglesa",
+      "clássico universal"
+    ],
+    "autores": [
+      "Bram Stoker"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1897-05-26",
+    "editora": "Editora Martin Claret",
+    "descricao": "A história do Conde Drácula, um vampiro da Transilvânia que tenta se mudar para a Inglaterra, e o grupo que se une para detê-lo.",
+    "isbn": "978-85-7232-866-2",
+    "estoque": 47,
+    "id": 45
+  },
+  {
+    "titulo": "O Hobbit",
+    "preco": 59.90,
+    "categoria": "Literatura Clássica",
+    "tags": [
+      "fantasia",
+      "aventura",
+      "clássico universal"
+    ],
+    "autores": [
+      "J. R. R. Tolkien"
+    ],
+    "mais_recente_edicao": true,
+    "data_publicacao": "1937-09-21",
+    "editora": "HarperCollins",
+    "descricao": "Bilbo Bolseiro, um hobbit tranquilo, é convocado pelo mago Gandalf para uma aventura inesperada ao lado de treze anões em busca de um tesouro guardado pelo dragão Smaug.",
+    "isbn": "978-85-209-2330-6",
+    "estoque": 82,
+    "id": 46
+  }
+]

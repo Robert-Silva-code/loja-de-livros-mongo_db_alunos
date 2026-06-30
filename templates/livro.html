@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}{{ livro.titulo }} - Livraria Online{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Imagem do livro -->
+            <div class="flex-shrink-0 w-full md:w-1/3 lg:w-1/4">
+                <div class="bg-gray-200 dark:bg-gray-700 rounded-xl overflow-hidden border-2 border-orange-400 dark:border-orange-700">
+                    <img 
+                        src="{% if livro.id %}{{ url_for('static', filename='images/' ~ livro.id ~ '.png') }}{% else %}https://placehold.co/300x400?text={{ livro.titulo | replace(' ', '+') }}{% endif %}" 
+                        alt="{{ livro.titulo }}" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/300x400?text={{ livro.titulo | replace(' ', '+') }}';"
+                        class="w-full h-auto"
+                    >
+                </div>
+            </div>
+            <!-- Informações do livro -->
+            <div class="flex-grow">
+                <div class="flex items-center gap-3 mb-4">
+                    {% if livro.mais_recente_edicao %}
+                        <span class="bg-green-700 text-white text-xs px-4 py-1 rounded-full font-semibold shadow">Edição Recente</span>
+                    {% else %}
+                        <span class="bg-orange-800 text-white text-xs px-4 py-1 rounded-full font-semibold shadow">Edição Antiga</span>
+                    {% endif %}
+                    <h1 class="text-2xl md:text-3xl font-bold text-orange-600 dark:text-orange-400">{{ livro.titulo }}</h1>
+                </div>
+                <p class="text-lg mb-2 text-orange-700 dark:text-orange-300">{{ livro.autores | join(', ') }}</p>
+                <div class="text-3xl font-bold mb-3 text-orange-600 dark:text-orange-400">R$ {{ livro.preco.to_decimal() if livro.preco else '---' }}</div>
+                <div class="mb-4">
+                    <span class="font-semibold">Categoria:</span> {{ livro.categoria }}<br>
+                    <span class="font-semibold">Editora:</span> {{ livro.editora }}<br>
+                    <span class="font-semibold">Ano:</span> {{ livro.data_publicacao.year if livro.data_publicacao else '---' }}<br>
+                    <span class="font-semibold">Autores:</span> {{ livro.numero_autores }}
+                </div>
+                <div class="mb-6">
+                    <span class="font-semibold">ISBN:</span> {{ livro.isbn }}
+                </div>
+                <div class="mb-6">
+                    <span class="font-semibold">Estoque:</span> {{ livro.estoque }} unidades
+                </div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    {% for tag in livro.tags %}
+                        <span class="bg-orange-200 dark:bg-orange-800 text-orange-800 dark:text-orange-200 rounded-full px-3 py-1 text-xs font-semibold">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <div class="prose dark:prose-invert max-w-none">
+                    <h3 class="text-xl font-bold mb-2">Descrição</h3>
+                    <p>{{ livro.descricao }}</p>
+                </div>
+                <div class="mt-8">
+                    <button class="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-bold transition-colors duration-200">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

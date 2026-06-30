@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ - Livraria Online{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+        <h1 class="text-3xl font-bold mb-8 text-center text-orange-600 dark:text-orange-400">Perguntas Frequentes</h1>
+        <div class="max-w-3xl mx-auto">
+            <div class="prose dark:prose-invert">
+                <!-- Pergunta 1 -->
+                <details class="mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">
+                    <summary class="text-lg font-semibold text-gray-900 dark:text-gray-100 cursor-pointer flex items-center gap-2">
+                        Como faço para comprar um livro?
+                    </summary>
+                    <p class="mt-2">
+                        Para comprar um livro, basta navegar pelo catálogo, escolher o título desejado e clicar em "Adicionar ao carrinho". Em seguida, siga para o carrinho de compras e finalize o pedido.
+                    </p>
+                </details>
+                <!-- Pergunta 2 -->
+                <details class="mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">
+                    <summary class="text-lg font-semibold text-gray-900 dark:text-gray-100 cursor-pointer flex items-center gap-2">
+                        Quais são as formas de pagamento aceitas?
+                    </summary>
+                    <p class="mt-2">
+                        Aceitamos cartões de crédito, boleto bancário e PIX. Em breve, incluiremos mais opções de pagamento.
+                    </p>
+                </details>
+                <!-- Pergunta 3 -->
+                <details class="mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">
+                    <summary class="text-lg font-semibold text-gray-900 dark:text-gray-100 cursor-pointer flex items-center gap-2">
+                        Qual é o prazo de entrega?
+                    </summary>
+                    <p class="mt-2">
+                        O prazo de entrega varia conforme a região. Em média, o envio leva de 3 a 7 dias úteis após a confirmação do pagamento.
+                    </p>
+                </details>
+                <!-- Pergunta 4 -->
+                <details class="mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">
+                    <summary class="text-lg font-semibold text-gray-900 dark:text-gray-100 cursor-pointer flex items-center gap-2">
+                        Como faço para acompanhar meu pedido?
+                    </summary>
+                    <p class="mt-2">
+                        Após a confirmação da compra, você receberá um e-mail com o código de rastreamento. Também é possível acompanhar o pedido na área do cliente.
+                    </p>
+                </details>
+                <!-- Pergunta 5 -->
+                <details class="mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">
+                    <summary class="text-lg font-semibold text-gray-900 dark:text-gray-100 cursor-pointer flex items-center gap-2">
+                        Posso trocar ou devolver um livro?
+                    </summary>
+                    <p class="mt-2">
+                        Sim, aceitamos trocas e devoluções dentro do prazo de 7 dias após o recebimento do produto, conforme a legislação brasileira.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

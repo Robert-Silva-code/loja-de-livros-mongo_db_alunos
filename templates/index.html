@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Início - Livraria Online{% endblock %}
+
+{% block content %}
+
+<h1 class="text-3xl font-bold mb-8 text-center text-orange-600 dark:text-orange-400">Livros em Destaque</h1>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    {% for livro in livros %}
+    <div class="relative bg-gray-200 dark:bg-gray-700 border-2 border-orange-400 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-200 group" data-id="{{ livro._id }}">
+        <!-- Badge -->
+        {% if livro.mais_recente_edicao %}
+            <span class="absolute top-4 right-4 bg-green-700 text-white text-xs px-4 py-1 rounded-full z-10 font-semibold shadow badge">Edição Recente</span>
+        {% else %}
+            <span class="absolute top-4 right-4 bg-orange-800 text-white text-xs px-4 py-1 rounded-full z-10 font-semibold shadow badge">Edição Antiga</span>
+        {% endif %}
+        <!-- Imagem -->
+        <div class="w-full h-40 bg-gray-300 dark:bg-gray-600 flex items-center justify-center overflow-hidden">
+            <img
+                src="{% if livro.id %}{{ url_for('static', filename='images/' ~ livro.id ~ '.png') }}{% else %}https://placehold.co/220x160?text={{ livro.titulo | replace(' ', '+') }}{% endif %}"
+                alt="{{ livro.titulo }}"
+                onerror="this.onerror=null;this.src='https://placehold.co/220x160?text={{ livro.titulo | replace(' ', '+') }}';"
+                class="object-cover w-full h-full"
+            >
+        </div>
+        <!-- Conteúdo -->
+        <div class="p-4 flex flex-col gap-2 bg-gray-100 dark:bg-gray-800">
+            <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-0">{{ livro.titulo }}</h2>
+            <div class="text-orange-700 dark:text-orange-300 text-sm mb-1">{{ livro.autores | join(', ') }}</div>
+            <div class="text-orange-600 dark:text-orange-400 font-bold text-lg mb-2">R$ {{ livro.preco.to_decimal() if livro.preco else '---' }}</div>
+            <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-2">
+                <span class="block"><strong>Categoria:</strong> {{ livro.categoria }}</span>
+                <span class="block"><strong>Editora:</strong> {{ livro.editora }}</span>
+                <span class="block"><strong>Ano:</strong> {{ livro.data_publicacao.year if livro.data_publicacao else '---' }}</span>
+                <span class="block"><strong>Autores:</strong> {{ livro.numero_autores }}</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-auto">
+                {% for tag in livro.tags %}
+                    <span class="bg-orange-200 dark:bg-orange-800 text-orange-800 dark:text-orange-200 rounded-full px-3 py-1 text-xs font-semibold">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
