@@ -10,7 +10,6 @@ load_dotenv()
 
 # Configuração da conexão com o MongoDB Atlas
 MONGO_URI = os.getenv("MONGO_URI")
-print(MONGO_URI)
 client = None
 db = None
 try:
@@ -107,11 +106,16 @@ class Livro:
         - dicionário com os dados do livro, ou `None` se não encontrado
 
         Orientações:
-        - Coonverter `id_livro` para `ObjectId` quando necessário.
-        - Utilizar `db.livrs.find_one({"_id": ObjectId(id_livro)})`.
+        - Converter `id_livro` para `ObjectId` quando necessário.
+        - Utilizar `db.livros.find_one({"_id": ObjectId(id_livro)})`.
         - Tratar possíveis exceções de conversão/consulta.
         """
-        pass
+        try:
+            id_convertido = ObjectId(id_livro)
+            livro_encontrado = livros.find_one({'_id': id_convertido})
+            return livro_encontrado
+        except:
+            return None
 
     @staticmethod
     def buscar_todos():
@@ -126,7 +130,9 @@ class Livro:
         Orientações:
         - Usar `livros.find()` e converter o cursor em lista.
         """
-        pass
+        cursor = livros.find()
+        lista = list(cursor)
+        return lista
 
     @staticmethod
     def buscar_livros(filtros=None, pagina=1, por_pagina=12):
