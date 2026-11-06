@@ -1,18 +1,31 @@
 from pymongo import MongoClient
+from dotenv import load_dotenv
 from bson.objectid import ObjectId
+from bson.decimal128 import Decimal128
+from decimal import Decimal
+from datetime import datetime
 import os
 
+load_dotenv()
+
 # Configuração da conexão com o MongoDB Atlas
-MONGO_URI = os.environ.get("MONGO_URI")
+MONGO_URI = os.getenv("MONGO_URI")
+print(MONGO_URI)
 client = None
 db = None
 try:
     if not MONGO_URI:
-        raise ValueError("MONGO_URI não definida")
+       raise ValueError("MONGO_URI não definida")
     client = MongoClient(MONGO_URI)
     db = client.livraria  # nome do banco de dados
 except Exception as e:
     print(f"Erro ao conectar ao MongoDB: {e}")
+
+def parse_date(date_str):
+    try:
+        return datetime.strptime(date_str, "%Y-%m-%d")
+    except Exception:
+        return None
 
 # Coleções
 livros = db.livros
@@ -62,7 +75,25 @@ class Livro:
         - retorna o `_id` do documento inserido (ObjectId) em caso de sucesso
         - ou lança/propaga exceção em caso de erro
         """
-        pass
+        dados_livro = {
+            'titulo': self.titulo,
+            'preco': Decimal128(Decimal(str(self.preco))),
+            'categoria': self.categoria,
+            'tags': self.tags,
+            'autores': self.autores,
+            'mais_recente_edicao': self.mais_recente_edicao,
+            'numero_autores': self.numero_autores,
+            'data_publicacao': parse_date(self.data_publicacao),
+            'editora': self.editora,
+            'descricao': self.descricao,
+            'isbn': self.isbn,
+            'estoque': self.estoque,
+            'imagem_capa': self.imagem_capa,
+        }
+
+        resultado = livros.insert_one(dados_livro)
+
+        return resultado.inserted_id
 
     @staticmethod
     def buscar_por_id(id_livro):
@@ -76,8 +107,8 @@ class Livro:
         - dicionário com os dados do livro, ou `None` se não encontrado
 
         Orientações:
-        - Converter `id_livro` para `ObjectId` quando necessário.
-        - Utilizar `db.livros.find_one({"_id": ObjectId(id_livro)})`.
+        - Coonverter `id_livro` para `ObjectId` quando necessário.
+        - Utilizar `db.livrs.find_one({"_id": ObjectId(id_livro)})`.
         - Tratar possíveis exceções de conversão/consulta.
         """
         pass

@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 import os
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY") or "uma_chave_secreta_muito_segura"
+app.secret_key = os.environ.get("SECRET_KEY") or "uma_chave_super_secreta"
 
 
 # Rota principal
