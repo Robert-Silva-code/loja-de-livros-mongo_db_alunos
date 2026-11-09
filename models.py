@@ -244,7 +244,13 @@ class Usuario:
         Saída:
         - dicionário com os dados do usuário ou `None` se não encontrado
         """
-        pass
+        try:
+            usuario_encontrado = usuarios.find_one({'email': email})
+
+            return usuario_encontrado
+        except:
+            return None
+
 
     @staticmethod
     def buscar_por_id(id_usuario):
@@ -257,7 +263,12 @@ class Usuario:
         Saída:
         - dicionário com os dados do usuário ou `None` se não encontrado
         """
-        pass
+        try:
+            id_convertido = ObjectId(id_usuario)
+            usuario_encontrado = usuarios.find_one({'_id': id_convertido})
+            return usuario_encontrado
+        except:
+            return None
 
 
 class Pedido:
@@ -279,7 +290,17 @@ class Pedido:
         - retorna o `_id` do documento inserido (ObjectId) em caso de sucesso
         - ou lança/propaga exceção em caso de erro
         """
-        pass
+        dados_pedido = {
+            'id_usuario': self.id_usuario,
+            'livros': self.livros,
+            'data': parse_date(self.data),
+            'total': self.total,
+            'status': self.status,
+        }
+
+        resultado = pedidos.insert_one(dados_pedido)
+
+        return resultado.inserted_id
 
     @staticmethod
     def buscar_por_usuario(id_usuario):
