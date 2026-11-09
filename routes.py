@@ -155,7 +155,8 @@ def minha_conta():
         flash("Faça login para acessar sua conta.", "warning")
         return redirect(url_for("login"))
     pedidos = Pedido.buscar_por_usuario(session["user_id"]) or []
-    return render_template("conta.html", pedidos=pedidos)
+    usuario = Usuario.buscar_por_id(session["user_id"])
+    return render_template("conta.html", pedidos=pedidos, usuario=usuario)
 
 
 @app.route("/recuperar-senha", methods=["GET", "POST"])

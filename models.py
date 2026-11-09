@@ -291,10 +291,10 @@ class Pedido:
         - ou lança/propaga exceção em caso de erro
         """
         dados_pedido = {
-            'id_usuario': self.id_usuario,
+            'id_usuario': ObjectId(self.id_usuario),
             'livros': self.livros,
             'data': parse_date(self.data),
-            'total': self.total,
+            'total': Decimal128(Decimal(str(self.total))),
             'status': self.status,
         }
 
@@ -313,7 +313,12 @@ class Pedido:
         Saída:
         - lista de documentos (pedidos) pertencentes ao usuário
         """
-        pass
+        try:
+            id_convertido = ObjectId(id_usuario)
+            cursor = pedidos.find({'id_usuario': id_convertido})
+            return list(cursor)
+        except:
+            return []
 
     @staticmethod
     def buscar_por_id(id_pedido):
@@ -326,4 +331,10 @@ class Pedido:
         Saída:
         - dicionário com os dados do pedido ou `None` se não encontrado
         """
-        pass
+        try:
+            id_convertido = ObjectId(id_pedido)
+
+            resultado = pedidos.find_one({'_id': id_convertido})
+            return resultado
+        except:
+            return None
