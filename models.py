@@ -4,6 +4,7 @@ from bson.objectid import ObjectId
 from bson.decimal128 import Decimal128
 from decimal import Decimal
 from datetime import datetime
+import bcrypt
 import os
 
 load_dotenv()
@@ -153,7 +154,13 @@ class Livro:
         - Usar `count_documents(filtros)` para obter o total.
         - Validar os parâmetros de entrada (p.ex. pagina >= 1).
         """
-        pass
+        if pagina >= 1:
+            skip = (pagina - 1) * por_pagina
+            resultado = list(livros.find(filtros).sort('titulo', 1).skip(skip).limit(por_pagina))
+            total = livros.count_documents(filtros)
+            return (resultado, total)
+        else:
+            return ([], 0)
 
     @staticmethod
     def categorias_disponiveis():
@@ -168,7 +175,8 @@ class Livro:
         Orientações:
         - Utilizar `db.livros.distinct("categoria")`.
         """
-        pass
+        resultado = list(livros.distinct("categoria"))
+        return resultado
 
     @staticmethod
     def tags_disponiveis():
@@ -183,14 +191,26 @@ class Livro:
         Orientações:
         - Utilizar um pipeline de agregação com `$unwind` em `tags` seguido de `$group` para obter valores distintos.
         """
-        pass
+        pipeline = [
+            {"$unwind": "$tags"},
+            {"$group": {"_id": "$tags"}}
+        ]
+
+        cursor = livros.aggregate(pipeline)
+
+        lista_tags = [doc['_id'] for doc in cursor]
+
+        return lista_tags
 
 
 class Usuario:
     def __init__(self, nome, email, senha):
         self.nome = nome
         self.email = email
-        self.senha = senha  # Importante: criptografar antes de salvar!
+
+        senha_encode = senha.encode('utf-8')
+        hashed = bcrypt.hashpw(senha_encode, bcrypt.gensalt())
+        self.senha = hashed  # Importante: criptografar antes de salvar!
 
     def salvar(self):
         """
@@ -203,7 +223,15 @@ class Usuario:
         - retorna o `_id` do documento inserido (ObjectId) em caso de sucesso
         - ou lança/propaga exceção em caso de erro
         """
-        pass
+        dados_usuario = {
+            'nome': self.nome,
+            'email': self.email,
+            'senha': self.senha
+        }
+
+        resultado = usuarios.insert_one(dados_usuario)
+
+        return resultado.inserted_id
 
     @staticmethod
     def buscar_por_email(email):
