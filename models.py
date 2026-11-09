@@ -27,6 +27,12 @@ def parse_date(date_str):
     except Exception:
         return None
 
+def _to_objectid(id_entrada):
+    try:
+        return ObjectId(id_entrada) if not isinstance(id_entrada, ObjectId) else id_entrada
+    except Exception:
+        return None
+
 # Coleções
 livros = db.livros
 usuarios = db.usuarios
@@ -112,8 +118,8 @@ class Livro:
         - Tratar possíveis exceções de conversão/consulta.
         """
         try:
-            id_convertido = ObjectId(id_livro)
-            livro_encontrado = livros.find_one({'_id': id_convertido})
+            oid = _to_objectid(id_livro)
+            livro_encontrado = livros.find_one({'_id': oid})
             return livro_encontrado
         except:
             return None
@@ -264,8 +270,8 @@ class Usuario:
         - dicionário com os dados do usuário ou `None` se não encontrado
         """
         try:
-            id_convertido = ObjectId(id_usuario)
-            usuario_encontrado = usuarios.find_one({'_id': id_convertido})
+            oid = _to_objectid(id_usuario)
+            usuario_encontrado = usuarios.find_one({'_id': oid})
             return usuario_encontrado
         except:
             return None
@@ -291,7 +297,7 @@ class Pedido:
         - ou lança/propaga exceção em caso de erro
         """
         dados_pedido = {
-            'id_usuario': ObjectId(self.id_usuario),
+            'id_usuario': self.id_usuario,
             'livros': self.livros,
             'data': parse_date(self.data),
             'total': Decimal128(Decimal(str(self.total))),
@@ -314,8 +320,8 @@ class Pedido:
         - lista de documentos (pedidos) pertencentes ao usuário
         """
         try:
-            id_convertido = ObjectId(id_usuario)
-            cursor = pedidos.find({'id_usuario': id_convertido})
+            oid = _to_objectid(id_usuario)
+            cursor = pedidos.find({'id_usuario': oid})
             return list(cursor)
         except:
             return []
@@ -332,9 +338,9 @@ class Pedido:
         - dicionário com os dados do pedido ou `None` se não encontrado
         """
         try:
-            id_convertido = ObjectId(id_pedido)
+            oid = _to_objectid(id_pedido)
 
-            resultado = pedidos.find_one({'_id': id_convertido})
+            resultado = pedidos.find_one({'_id': oid})
             return resultado
         except:
             return None
